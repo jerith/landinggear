@@ -15,8 +15,6 @@ except ImportError:
     from StringIO import StringIO as BytesIO  # noqa
 
 
-
-
 class HTTPCacheExtractor(CacheExtractor):
     """
     Extracts wheels from the HTTP cache.
