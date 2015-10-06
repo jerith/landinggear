@@ -10,7 +10,7 @@ def readfile(filename):
 
 setup(
     name="landinggear",
-    version="0.0.1a0",
+    version="0.0.1",
     author="Jeremy Thurgood",
     author_email="firxen@gmail.com",
     description=("Wheels for aeroplanes:"
