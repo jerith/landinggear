@@ -1,6 +1,6 @@
 import os
 
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def readfile(filename):
@@ -20,7 +20,7 @@ setup(
     keywords=["pip", "wheel", "aeroplane", "cache"],
     url="https://github.com/jerith/landinggear",
     install_requires=["pip", "wheel"],
-    packages=["landinggear"],
+    packages=find_packages(),
     include_package_data=True,
     entry_points={
         "console_scripts": ['landinggear=landinggear.command:main'],
