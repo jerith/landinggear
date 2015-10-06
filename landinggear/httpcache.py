@@ -1,17 +1,20 @@
-from __future__ import print_function, absolute_import
+from __future__ import absolute_import, print_function
 
 import os
 import os.path
-from zipfile import ZipFile, BadZipfile
+from zipfile import BadZipfile, ZipFile
+
+from pip.download import CacheControlAdapter, SafeFileCache
+from wheel.pkginfo import read_pkg_info_bytes
+
+from landinggear.base import CachedPackage, CacheExtractor, pip_cache_subdir
+
 try:
     from io import BytesIO
 except ImportError:
     from StringIO import StringIO as BytesIO  # noqa
 
-from pip.download import SafeFileCache, CacheControlAdapter
-from wheel.pkginfo import read_pkg_info_bytes
 
-from landinggear.base import pip_cache_subdir, CacheExtractor, CachedPackage
 
 
 class HTTPCacheExtractor(CacheExtractor):

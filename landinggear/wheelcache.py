@@ -1,9 +1,10 @@
-from __future__ import print_function, absolute_import
+from __future__ import absolute_import, print_function
 
 import os
 import os.path
 
-from landinggear.base import pip_cache_subdir, CacheExtractor, CachedPackage
+from landinggear.base import (
+    CachedPackage, CacheExtractor, LandingGearError, pip_cache_subdir)
 
 
 class WheelCacheExtractor(CacheExtractor):
@@ -12,6 +13,8 @@ class WheelCacheExtractor(CacheExtractor):
     """
 
     def __init__(self, pip_cache_dir=None):
+        if pip_cache_dir is not None and not os.path.isdir(pip_cache_dir):
+            raise LandingGearError("Missing pip cache: %s" % (pip_cache_dir,))
         self.wheel_cache_dir = pip_cache_subdir("wheels", pip_cache_dir)
 
     def iter_cache(self):

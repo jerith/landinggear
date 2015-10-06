@@ -1,9 +1,13 @@
-from __future__ import print_function, absolute_import
+from __future__ import absolute_import, print_function
 
 import os.path
 
 from pip.locations import USER_CACHE_DIR
 from pip.utils import normalize_path
+
+
+class LandingGearError(Exception):
+    pass
 
 
 def pip_cache_subdir(subdir, pip_cache_dir=None):
